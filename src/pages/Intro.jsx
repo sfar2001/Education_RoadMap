@@ -1,9 +1,41 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './Intro.css';
 
+const navLinks = [
+  { to: '/day1', label: 'Day 1' },
+  { to: '/day2', label: 'Day 2' },
+  { to: '/day3', label: 'Day 3' },
+  { to: '/day4', label: 'Day 4' },
+  { to: '/day5', label: 'Day 5' },
+  { to: '/day6', label: 'Day 6' },
+  { to: '/day7', label: 'Day 7' },
+  { to: '/day8', label: 'Day 8' },
+  { to: '/day9', label: 'Day 9' },
+  { to: '/day10', label: 'Day 10' },
+  { to: '/day11', label: 'Day 11' },
+  { to: '/promttricks', label: 'Prompt Tricks' },
+  { to: '/githublearn', label: 'GitHub Learn' },
+];
+
 export default function Intro() {
+  const [navOpen, setNavOpen] = useState(false);
   return (
     <div className="intro-root">
+      <nav className={`intro-vertical-nav${navOpen ? ' intro-nav-open' : ''}`}>
+        <button className="intro-nav-hamburger" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle navigation">
+          <span />
+          <span />
+          <span />
+        </button>
+        <ul>
+          {navLinks.map(link => (
+            <li key={link.to}>
+              <Link className="intro-nav-link" to={link.to} onClick={() => setNavOpen(false)}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <div className="intro-content">
         <h1 className="intro-title">CS Roadmap: Interactive Study Guide</h1>
         <p className="intro-desc">Master HTML, CSS, JavaScript, Git, and AI Prompt Engineering with this hands-on, day-by-day roadmap. Each day builds your skills with real-world code, activities, and pro tips. Ready to level up?</p>

@@ -1,8 +1,40 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+const navLinks = [
+  { to: '/day1', label: 'Day 1 - Introduction to HTML & CSS' },
+  { to: '/day2', label: 'Day 2 - Intermediate HTML & CSS' },
+  { to: '/day3', label: 'Day 3 - CSS Layout Techniques' },
+  { to: '/day4', label: 'Day 4 - Introduction to JavaScript' },
+  { to: '/day5', label: 'Day 5 - JavaScript Operators, Expressions & Control Flow' },
+  { to: '/day6', label: 'Day 6 - JavaScript Functions, Scope, and this' },
+  { to: '/day7', label: 'Day 7 - JavaScript Objects, Classes, Arrays, and Iteration' },
+  { to: '/day8', label: 'Day 8 - JavaScript Array, Object, and String Methods' },
+  { to: '/day9', label: 'Day 9 - DOM Basics' },
+  { to: '/day10', label: 'Day 10 - Events in JavaScript' },
+  { to: '/day11', label: 'Day 11 - Asynchronous JavaScript' },
+  { to: '/promttricks', label: 'Prompt Tricks' },
+  { to: '/githublearn', label: 'GitHub Learn' },
+];
 
 export default function Day9() {
+  const [navOpen, setNavOpen] = useState(false);
   return (
     <>
+      <nav className={`intro-vertical-nav${navOpen ? ' intro-nav-open' : ''}`}>
+        <button className="intro-nav-hamburger" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle navigation">
+          <span />
+          <span />
+          <span />
+        </button>
+        <ul className="intro-nav-scroll">
+          {navLinks.map(link => (
+            <li key={link.to}>
+              <Link className="intro-nav-link" to={link.to} onClick={() => setNavOpen(false)}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <div className="centered-main">
         <section>
           <h1>Day 9</h1>
@@ -83,14 +115,7 @@ input.addEventListener('keydown', function(event) {
           <p>Day 9 &mdash; HTML &amp; CSS Roadmap Study Guide</p>
         </footer>
       </div>
-      <Link to="/day10" className="next-day-btn" aria-label="Go to next day">
-        Next Day
-        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style={{ verticalAlign: 'middle' }}><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" /></svg>
-      </Link>
-      <Link to="/day8" className="prev-day-btn" aria-label="Go to previous day">
-        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style={{ verticalAlign: 'middle' }}><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" /></svg>
-        Previous Day
-      </Link>
+    
     </>
   );
 } 

@@ -1,8 +1,41 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+const navLinks = [
+  { to: '/day1', label: 'Day 1 - Introduction to HTML & CSS' },
+  { to: '/day2', label: 'Day 2 - Intermediate HTML & CSS' },
+  { to: '/day3', label: 'Day 3 - CSS Layout Techniques' },
+  { to: '/day4', label: 'Day 4 - Introduction to JavaScript' },
+  { to: '/day5', label: 'Day 5 - JavaScript Operators, Expressions & Control Flow' },
+  { to: '/day6', label: 'Day 6 - JavaScript Functions, Scope, and this' },
+  { to: '/day7', label: 'Day 7 - JavaScript Objects, Classes, Arrays, and Iteration' },
+  { to: '/day8', label: 'Day 8 - JavaScript Array, Object, and String Methods' },
+  { to: '/day9', label: 'Day 9 - DOM Basics' },
+  { to: '/day10', label: 'Day 10 - Events in JavaScript' },
+  { to: '/day11', label: 'Day 11 - Asynchronous JavaScript' },
+  { to: '/promttricks', label: 'Prompt Tricks' },
+  { to: '/githublearn', label: 'GitHub Learn' },
+];
 
 export default function Day1() {
+  const [navOpen, setNavOpen] = useState(false);
   return (
     <>
+      <nav className={`intro-vertical-nav${navOpen ? ' intro-nav-open' : ''}`}>
+        <button className="intro-nav-hamburger" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle navigation">
+          <span />
+          <span />
+          <span />
+        </button>
+        <ul className="intro-nav-scroll">
+          {navLinks.map(link => (
+            <li key={link.to}>
+              <Link className="intro-nav-link" to={link.to} onClick={() => setNavOpen(false)}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div className="page-title">Day 1 - Introduction to HTML &amp; CSS</div>
       <div className="centered-main">
         <section>
           <h1>Day 1</h1>
@@ -341,10 +374,7 @@ img {
           <p>Day 1 &mdash; HTML &amp; CSS Roadmap Study Guide</p>
         </footer>
       </div>
-      <Link to="/day2" className="next-day-btn" title="Go to Day 2">
-        Next Day
-        <svg viewBox="0 0 20 20"><path d="M7.293 15.707a1 1 0 010-1.414L11.586 10 7.293 5.707a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" /></svg>
-      </Link>
+      
     </>
   );
 } 
