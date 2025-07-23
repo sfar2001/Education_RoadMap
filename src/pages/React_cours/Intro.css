@@ -1,22 +1,27 @@
+html, body, #root {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .intro-root {
   min-height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(120deg, #1e293b 0%, #0ea5e9 100%);
+  background: #000;
+}
+
+.particles-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .intro-bg-anim {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: radial-gradient(circle at 70% 30%, #38bdf8 0%, transparent 60%),
-              radial-gradient(circle at 30% 70%, #6366f1 0%, transparent 60%);
-  animation: intro-bg-move 8s ease-in-out infinite alternate;
-  opacity: 0.7;
+  display: none; /* hide the blue animated background */
 }
 
 @keyframes intro-bg-move {
@@ -188,14 +193,34 @@
 }
 
 .intro-content {
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  width: 90vw;
   background: rgba(30, 41, 59, 0.85);
   border-radius: 24px;
   padding: 48px 32px 40px 32px;
   box-shadow: 0 8px 32px #0008;
   text-align: center;
   animation: intro-fadein 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+@media (max-width: 900px) {
+  .intro-vertical-nav {
+    width: 80vw;
+    max-width: 320px;
+    min-width: 180px;
+  }
+  .intro-content {
+    width: 90vw;
+  }
 }
 
 @keyframes intro-fadein {

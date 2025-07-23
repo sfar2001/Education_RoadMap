@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Intro.css';
 import LetterGlitch from './LetterGlitch';
-import GradientText from './React_cours/GradientText';
+import GradientText from './GradientText';
 
 const navLinks = [
   { to: '/day1', label: 'Day 1 - Introduction to HTML & CSS' },

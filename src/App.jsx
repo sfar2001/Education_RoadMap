@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles.css';
-import Intro from './pages/Intro';
-import Day1 from './pages/Day1';
-import Day2 from './pages/Day2';
-import Day3 from './pages/Day3';
-import Day4 from './pages/Day4';
-import Day5 from './pages/Day5';
-import Day6 from './pages/Day6';
-import Day7 from './pages/Day7';
-import Day8 from './pages/Day8';
-import Day9 from './pages/Day9';
-import Day10 from './pages/Day10';
-import Day11 from './pages/Day11';
-import PromtTricks from './pages/PromtTricks';
-import GithubLearn from './pages/GithubLearn';
+import Intro from './pages/React_cours/Intro';
+import Day1 from './pages/React_cours/Day1';
+import Day2 from './pages/React_cours/Day2';
+import Day3 from './pages/React_cours/Day3';
+import Day4 from './pages/React_cours/Day4';
+import Day5 from './pages/React_cours/Day5';
+import Day6 from './pages/React_cours/Day6';
+import Day7 from './pages/React_cours/Day7';
+import Day8 from './pages/React_cours/Day8';
+import Day9 from './pages/React_cours/Day9';
+import Day10 from './pages/React_cours/Day10';
+import Day11 from './pages/React_cours/Day11';
+import PromtTricks from './pages/React_cours/PromtTricks';
+import GithubLearn from './pages/React_cours/GithubLearn';
 
 function App() {
   return (
