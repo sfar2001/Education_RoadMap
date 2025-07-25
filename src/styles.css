@@ -218,6 +218,9 @@ label {
     padding: 32px 16px;
     border-radius: 18px 18px 0 0;
     background: inherit;
+    /* Make main content scrollable if it overflows */
+    overflow-y: auto;
+    max-height: 100vh;
 }
 .centered-main > article,
 .centered-main > section,
